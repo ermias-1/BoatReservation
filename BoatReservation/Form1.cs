@@ -71,7 +71,8 @@ namespace BoatReservation
                 if ((num_adults == 2 && num_children == 0) || (num_adults == 1 && num_children == 1))
                 {
 
-                    lblCheckReserve.Text = "You are good to reserve this boat!";
+                    lblCheckReserve.Text = "You are good to reserve this boat! " + "\n" +
+                                           "Please click the 'Reserve' button to complete the reservation process! " + "\n";
                     lblCheckReserve.BackColor = Color.LightGreen;
                     txtNumAdults.Enabled = false ;
                     txtNumChildren.Enabled = false;
@@ -90,7 +91,8 @@ namespace BoatReservation
             {
                 if (num_adults == 1 && num_children == 0)
                 {
-                    lblCheckReserve.Text = "You are good to reserve this boat!";
+                    lblCheckReserve.Text = "You are good to reserve this boat! " + "\n" +
+                                           "Please click the 'Reserve' button to complete the reservation process! " + "\n";
                     lblCheckReserve.BackColor = Color.LightGreen;
                     txtNumAdults.Enabled = false;
                     txtNumChildren.Enabled = false;
@@ -111,7 +113,8 @@ namespace BoatReservation
             {
                 if (num_adults == 1 && num_children <= 1)
                 {
-                    lblCheckReserve.Text = "You are good to reserve this boat!";
+                    lblCheckReserve.Text = "You are good to reserve this boat! " + "\n" +
+                                           "Please click the 'Reserve' button to complete the reservation process! " + "\n";
                     lblCheckReserve.BackColor = Color.LightGreen;
                     txtNumAdults.Enabled = false;
                     txtNumChildren.Enabled = false;
@@ -132,7 +135,12 @@ namespace BoatReservation
         private void btnReserve_Click(object sender, EventArgs e)
         {
             // Display the details of the reservation
-            MessageBox.Show("You reserve a " +  cbxType.SelectedItem  + " boat for " + txtNumAdults.Text + " Adults and " + txtNumChildren.Text + "Children", "Reservation Detail");
+            MessageBox.Show("Your reservation for renting a boat is confirmed. " + "\n" +
+                "Here is the detail of your reservation: " + "\n" +
+                "Type of boat: " + cbxType.SelectedItem  + "\n" +
+                "Number of persons on the reservation: " + "\n" + 
+                "Adults = " + txtNumAdults.Text + "\n" + "Children = " + txtNumChildren.Text + "\n" +
+                "Thank You for renting with us! " + "\n", "Confirmation for Reservation ");
         }
 
 
