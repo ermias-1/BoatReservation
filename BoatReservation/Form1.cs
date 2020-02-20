@@ -135,12 +135,16 @@ namespace BoatReservation
         private void btnReserve_Click(object sender, EventArgs e)
         {
             // Display the details of the reservation
+            lblCheckReserve.Text = "";
+            lblCheckReserve.BackColor = BackColor;
             MessageBox.Show("Your reservation for renting a boat is confirmed. " + "\n" +
                 "Here is the detail of your reservation: " + "\n" +
                 "Type of boat: " + cbxType.SelectedItem  + "\n" +
                 "Number of persons on the reservation: " + "\n" + 
                 "Adults = " + txtNumAdults.Text + "\n" + "Children = " + txtNumChildren.Text + "\n" +
                 "Thank You for renting with us! " + "\n", "Confirmation for Reservation ");
+            
+             
         }
 
 
