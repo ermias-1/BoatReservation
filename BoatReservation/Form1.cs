@@ -39,42 +39,52 @@ namespace BoatReservation
                 lblCheckReserve.Text = "Invalid data";
                 lblCheckReserve.BackColor = Color.Red;
                 MessageBox.Show("You must enter a number", "Error");
-                 return;
+                return;
             }
             else if (num_adults < 0)
             {
                 lblCheckReserve.Text = "Invalid data";
                 lblCheckReserve.BackColor = Color.Red;
                 MessageBox.Show("You can't enter a negative number", "Error");
-                 return;
+                return;
             }
             else if (Int32.TryParse(txtNumChildren.Text, out num_children) == false)
             {
                 lblCheckReserve.Text = "Invalid data";
                 lblCheckReserve.BackColor = Color.Red;
                 MessageBox.Show("You must enter a number", "Error");
-                 return;
+                return;
             }
             else if (num_children < 0)
             {
                 lblCheckReserve.Text = "Invalid data";
                 lblCheckReserve.BackColor = Color.Red;
                 MessageBox.Show("You can't enter a negative number", "Error");
-                 return;
-            } 
+                return;
+            }
             /* Set the condition for each type of boats, in which how many persons are allowed
              * to rent and get the data from the user and then 
              * display the status of the reservation */
+
+            /* Creating a new method named CheckCanoe and its calling statment
+             * using a refactoring */
+
+            CheckCanoe(type, num_adults, num_children);
+
+        }
+
+        private void CheckCanoe(string type, int num_adults, int num_children)
+        {
             if (type == "Canoe")
             {
-                
+
                 if ((num_adults == 2 && num_children == 0) || (num_adults == 1 && num_children == 1))
                 {
 
                     lblCheckReserve.Text = "You are good to reserve this boat! " + "\n" +
                                            "Please click the 'Reserve' button to complete the reservation process! " + "\n";
                     lblCheckReserve.BackColor = Color.LightGreen;
-                    txtNumAdults.Enabled = false ;
+                    txtNumAdults.Enabled = false;
                     txtNumChildren.Enabled = false;
                     cbxType.Enabled = false;
                     btnReserve.Enabled = true;
@@ -87,7 +97,15 @@ namespace BoatReservation
                     return;
                 }
             }
-            else if (type == "Kayak")
+            /* Creating a new method named CheckKayak and its calling statment
+             * using a refactoring */
+
+            CheckKayak(type, num_adults, num_children);
+        }
+
+        private void CheckKayak(string type, int num_adults, int num_children)
+        {
+            if (type == "Kayak")
             {
                 if (num_adults == 1 && num_children == 0)
                 {
@@ -109,7 +127,15 @@ namespace BoatReservation
                     return;
                 }
             }
-            else if (type == "Paddleboard")
+            /* Creating a new method named CheckPaddleBoard and its calling statment
+             * using a refactoring */
+
+            CheckPaddleBoard(type, num_adults, num_children);
+        }
+
+        private void CheckPaddleBoard(string type, int num_adults, int num_children)
+        {
+            if (type == "Paddleboard")
             {
                 if (num_adults == 1 && num_children <= 1)
                 {
@@ -129,7 +155,6 @@ namespace BoatReservation
                     return;
                 }
             }
-
         }
 
         private void btnReserve_Click(object sender, EventArgs e)
